@@ -111,15 +111,15 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <Navbar />
 
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-gray-800">Leads</h2>
-            <p className="text-sm text-gray-500">{pagination.total} total leads</p>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Leads</h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{pagination.total} total leads</p>
           </div>
           <div className="flex gap-3">
             <button
@@ -138,7 +138,7 @@ const Dashboard = () => {
         </div>
 
         {/* Filters */}
-        <div className="bg-white rounded-xl p-4 mb-6 flex flex-wrap gap-3 shadow-sm">
+        <div className="bg-white dark:bg-gray-900 rounded-xl p-4 mb-6 flex flex-wrap gap-3 shadow-sm">
           <input
             type="text"
             placeholder="Search by name or email..."
@@ -178,7 +178,7 @@ const Dashboard = () => {
         </div>
 
         {/* Table */}
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm overflow-hidden">
           {loading ? (
             <div className="p-12 text-center text-gray-500">Loading leads...</div>
           ) : error ? (
@@ -187,28 +187,28 @@ const Dashboard = () => {
             <div className="p-12 text-center text-gray-400">No leads found</div>
           ) : (
             <table className="w-full text-sm">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                 <tr>
-                  <th className="text-left px-6 py-3 text-gray-600 font-medium">Name</th>
-                  <th className="text-left px-6 py-3 text-gray-600 font-medium">Email</th>
-                  <th className="text-left px-6 py-3 text-gray-600 font-medium">Status</th>
-                  <th className="text-left px-6 py-3 text-gray-600 font-medium">Source</th>
-                  <th className="text-left px-6 py-3 text-gray-600 font-medium">Created</th>
-                  <th className="text-left px-6 py-3 text-gray-600 font-medium">Actions</th>
+                  <th className="text-left px-6 py-3 text-gray-600 dark:text-gray-300 font-medium">Name</th>
+                  <th className="text-left px-6 py-3 text-gray-600 dark:text-gray-300 font-medium">Email</th>
+                  <th className="text-left px-6 py-3 text-gray-600 dark:text-gray-300 font-medium">Status</th>
+                  <th className="text-left px-6 py-3 text-gray-600 dark:text-gray-300 font-medium">Source</th>
+                  <th className="text-left px-6 py-3 text-gray-600 dark:text-gray-300 font-medium">Created</th>
+                  <th className="text-left px-6 py-3 text-gray-600 dark:text-gray-300 font-medium">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {leads.map(lead => (
-                  <tr key={lead._id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 font-medium text-gray-800">{lead.name}</td>
-                    <td className="px-6 py-4 text-gray-600">{lead.email}</td>
+                  <tr key={lead._id} className="hover:bg-gray-50 dark:hover:bg-gray-800">
+                    <td className="px-6 py-4 font-medium text-gray-800 dark:text-gray-100">{lead.name}</td>
+                    <td className="px-6 py-4 text-gray-600 dark:text-gray-300">{lead.email}</td>
                     <td className="px-6 py-4">
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${statusColors[lead.status]}`}>
                         {lead.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-600">{lead.source}</td>
-                    <td className="px-6 py-4 text-gray-500">{new Date(lead.createdAt).toLocaleDateString()}</td>
+                    <td className="px-6 py-4 text-gray-600 dark:text-gray-300">{lead.source}</td>
+                    <td className="px-6 py-4 text-gray-500 dark:text-gray-400">{new Date(lead.createdAt).toLocaleDateString()}</td>
                     <td className="px-6 py-4 flex gap-2">
                       <button
                         onClick={() => openEdit(lead)}
