@@ -20,6 +20,9 @@ import authRoutes from './routes/authRoutes';
 
 app.use('/api/auth', authRoutes);
 
+import leadRoutes from './routes/leadRoutes';
+app.use('/api/leads', leadRoutes);
+
 // DB Connection + Server Start
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || '';
